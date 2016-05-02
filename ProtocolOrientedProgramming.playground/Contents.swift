@@ -21,7 +21,7 @@ struct FlappyBird:Bird,Flyable{
   let name:String
   let flappyAmplitude:Double
   let flappyFrequency:Double
-//  let canFly = true
+  //  let canFly = true
   
   var airSpeedVelocity: Double{
     return 3 * flappyFrequency * flappyAmplitude
@@ -36,7 +36,7 @@ struct Penguin:Bird{
 struct SwiftBird: Bird, Flyable{
   var name: String
   let version:Double
-//  let canFly = true
+  //  let canFly = true
   
   var airSpeedVelocity: Double{
     return 2000.0
@@ -90,6 +90,28 @@ if UnladenSwallow.African {
 }
 
 
+
+extension CollectionType{
+  func skip(skip:Int) ->[Generator.Element]{
+    guard skip != 0 else {return []}
+    
+    var index = self.startIndex
+    var result:[Generator.Element] = []
+    var i = 0
+    
+    repeat{
+      if skip != i{
+        result.append(self[index])
+      }
+      index = index.successor()
+      i += 1
+      
+    } while (index != self.endIndex)
+    
+    return result
+  }
+  
+}
 
 
 
