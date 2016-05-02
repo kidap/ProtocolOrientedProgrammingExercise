@@ -115,6 +115,52 @@ extension CollectionType{
 
 
 
+var x = ["frog","pants"].map { $0.length }.reduce(0) { $0 + $1 }
+
+print(x)
+
+
+func topSpeed<T: CollectionType where T.Generator.Element == Flyable>(c: T) -> Double {
+  return c.map { $0.airSpeedVelocity }.reduce(0) { max($0, $1) }
+}
+
+let flyingBirds: [Flyable] =
+  [UnladenSwallow.African,
+   UnladenSwallow.European,
+   SwiftBird(name: "SB",version: 2.0)]
+
+topSpeed(flyingBirds)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
